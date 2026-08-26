@@ -1,5 +1,4 @@
-/* font */
-
+/* ================= FONT ================= */
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
 
@@ -7,71 +6,99 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ================= ROOT ================= */
 html {
-  font-size: 17px !important;
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
-@media (max-width: 1268px) {
+/* RESPONSIVE FONT */
+@media (max-width: 1280px) {
   html {
-    font-size: 14px !important;
+    font-size: 15px;
   }
 }
 
 @media (max-width: 768px) {
   html {
-    font-size: 13px !important;
+    font-size: 14px;
   }
 }
 
-body {
-  font-family: "Poppins", sans-serif !important;
-  color: black;
-  background-color: rgb(230, 230, 230);
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
 }
 
+/* ================= BODY ================= */
+body {
+  font-family: "Poppins", sans-serif;
+  color: black;
+  background-color: rgb(230, 230, 230);
+  overflow-x: hidden; /* penting biar gak geser ke samping */
+}
+
+/* ================= TYPOGRAPHY ================= */
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: "Jost", sans-serif !important;
-}
-
+h6,
 .title {
-  font-family: "Jost", sans-serif !important;
-}
-
-.section {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.navbar {
-  z-index: 49 !important;
-}
-
-.fp-watermark {
-  display: none !important;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply text-gray-600;
+  font-family: "Jost", sans-serif;
 }
 
 span {
   font-family: "Jost", sans-serif;
 }
 
+/* RESPONSIVE HEADING */
+h1 {
+  @apply text-3xl md:text-5xl lg:text-6xl;
+}
+
+h2 {
+  @apply text-2xl md:text-4xl;
+}
+
+/* ================= SECTION ================= */
+.section {
+  min-height: 100vh; /* FIX dari height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem; /* biar aman di HP */
+}
+
+/* ================= CONTAINER ================= */
+.container-custom {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  z-index: 50;
+  width: 100%;
+}
+
+/* MOBILE NAV FIX */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+}
+
+/* ================= LIST ================= */
 li {
   @apply list-none relative;
 }
+
 li.active:after {
   content: "";
   position: absolute;
@@ -82,29 +109,48 @@ li.active:after {
   background-color: #ffffff;
 }
 
+/* ================= TABLE ================= */
 td,
 th {
   @apply py-2 px-3;
 }
 
+/* ================= TOOLTIP ================= */
 a[title]:hover:after {
-  margin-left: -100px;
-  margin-top: -50px;
   position: absolute;
   content: attr(title);
   padding: 0.5rem;
   white-space: nowrap;
   z-index: 1;
-  background-color: #333333;
+  background-color: #333;
   color: #fff;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   font-size: 0.8rem;
+
+  /* RESPONSIVE POSITION */
+  left: 50%;
+  transform: translateX(-50%);
+  top: -40px;
 }
 
+/* ================= SELECTION ================= */
 ::selection {
-  background: #333333;
+  background: #333;
   color: #fff;
 }
 
-/* punya NAVBAR */
+/* ================= FIX MOBILE ================= */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* HINDARI OVERFLOW */
+* {
+  box-sizing: border-box;
+}
+
+/* ================= REMOVE WATERMARK ================= */
+.fp-watermark {
+  display: none !important;
+}

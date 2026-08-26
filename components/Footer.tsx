@@ -51,7 +51,7 @@ export default function Footer() {
       <footer className="flex justify-center items-center flex-col my-5 self-start]">
         <p className="text-sm text-gray-800">
           &copy;{new Date().getFullYear()} -{" "}
-          <span className="text-lg text-gray-700">Mybimas</span>
+          <span className="text-lg text-gray-700">Bimasni</span>
         </p>
       </footer>
     </div>

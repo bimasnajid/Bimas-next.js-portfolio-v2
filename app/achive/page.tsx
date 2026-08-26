@@ -4,10 +4,12 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import Hr from "@/components/Hr";
 import {
   faArrowUpRightFromSquare,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
+import Footer from "@/components/Footer";
 import FixedButton from "@/components/FixedButton"; // Pastikan komponen FixedButton sudah ada
 
 interface Project {
@@ -42,27 +44,50 @@ export default function ArchivePage() {
 
   return (
     <main className="overflow-hidden">
-      {/* Tombol Kembali */}
-      <FixedButton onClick={handleBack}>
-        <FontAwesomeIcon icon={faChevronLeft} className="text-black pr-10" />
-      </FixedButton>
+      <nav
+        className="
+  fixed top-0 left-0 w-full
+  h-12 sm:h-14
+  px-4 sm:px-6 md:px-10 lg:px-16
+  flex items-center
+  bg-white/5 backdrop-blur-md
+  border-b border-white/20
+  shadow-sm
+  z-[60]
+"
+      >
+        {/* Button Back (Kiri) */}
+        <div className="flex items">
+          <FixedButton onClick={handleBack}>
+            <FontAwesomeIcon
+              icon={faChevronLeft}
+              className="text-black text-lg"
+            />
+          </FixedButton>
+        </div>
 
-      <div className="min-h-screen w-screen mt-10 p-10 flex justify-center items-center flex-col mb-10">
-        <div className="flex justify-center items-center flex-col my-5">
-          <motion.div
-            className="bg-gray-700 w-28 h-1 rounded-full mb-3"
-            initial={{ opacity: 0, x: -250 }}
-            animate={{ opacity: 1, x: 50 }}
-            transition={{ delay: 0.5, duration: 1, type: "spring" }}
-          />
+        {/* Title Tengah */}
+        <h1
+          className="
+text-lg sm:text-xl text-black ml-5 px-1 h-4 w-4
+  "
+        >
+          Bimasni
+        </h1>
+      </nav>
+
+      <div className="min-h-screen w-screen mt-10 p-10 flex text-left flex-col mb-10">
+        <div className="flex flex-col items-start my-5">
           <motion.h1
-            className="text-3xl font-bold mt-3"
-            initial={{ opacity: 0, x: -200 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7, duration: 1, type: "spring" }}
+            className="mt-2 text-2xl font-bold text-black relative z-10"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
           >
             Archive
           </motion.h1>
+          <Hr />
         </div>
 
         {/* Tabel Proyek Arsip */}
@@ -114,6 +139,7 @@ export default function ArchivePage() {
           </table>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }

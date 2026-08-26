@@ -1,44 +1,64 @@
 "use client";
+
 import { useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Button from "@/components/Button";
+import Footer from "@/components/Footer";
 
 // main project image
-import LUDOang from "@/public/projects/main-project/ludo.png";
-import ReactChatMain from "@/public/projects/main-project/react-chat.png";
+// import SayurKu from "@/public/projects/sayurKu/leandig_page.png"
 
 import Hr from "@/components/Hr";
 import FixedButon from "@/components/FixedButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { StaticImageData } from "next/image";
+import Navbar from "@/components/Navbar";
 
-interface Project {
+interface projects {
   title: string;
   desc: string;
   year: string;
   tech: string;
   bg: StaticImageData; // Updated for TypeScript
   slug: string;
+  image: string;
 }
 
-const projects: Project[] = [
+const projects = [
   {
-    title: "LUDOang",
-    desc: "LUDOang is a game created using python and pygame. This game is inspired by LUDO game.",
+    title: "SayurKu",
     year: "2023",
-    tech: "Python, Pygame, OpenGL",
-    bg: LUDOang,
-    slug: "ludoang",
+    desc: "E-commerce sayuran modern berbasis Next.js",
+    tech: "Next.js, Tailwind, Laravel",
+    image: "/projects/sayurKu/leandig_page.png",
+    slung: "SayurKu",
   },
   {
-    title: "React Chat WebApp",
-    desc: "My second React project. This project is a realtime chat webapp that I created using ReactJS, Firebase, and TailwindCSS.",
-    year: "2023",
-    tech: "Javascript, React Js, Firebase, Daisy UI",
-    bg: ReactChatMain,
-    slug: "react-chat",
+    title: "Furniture PT.KA",
+    slug: "furniture",
+    year: "2025",
+    desc: "Website furniture modern UI",
+    tech: "Next.js, Tailwind, Typescript",
+    image: "/projects/PTKA/PTKA.png",
+  },
+
+  {
+    title: "Aleph Bot",
+    year: "2022",
+    desc: "E-commerce sayuran modern berbasis Next.js",
+    tech: "Next.js, Tailwind, Laravel",
+    image: "/projects/main-project/aleph-bot.png",
+    slung: "Alepeh bot",
+  },
+  {
+    title: "Unmuh UI",
+    slug: "ummuh Ui",
+    year: "2021",
+    desc: "Website furniture modern UI",
+    tech: "Next.js, Tailwind, Typescript",
+    image: "/projects/unmuh/unmuh1.png",
   },
 ];
 
@@ -54,6 +74,37 @@ const Page: React.FC = () => {
   return (
     <>
       <main className="overflow-hidden">
+        <nav
+          className="
+  fixed top-0 left-0 w-full
+  h-12 sm:h-14
+  px-4 sm:px-6 md:px-10 lg:px-16
+  flex items-center
+  bg-white/5 backdrop-blur-md
+  border-b border-white/20
+  shadow-sm
+  z-[60]
+"
+        >
+          {/* Button Back (Kiri) */}
+          <div className="flex itens-center">
+            <FixedButon onClick={handleBack}>
+              <FontAwesomeIcon
+                icon={faChevronLeft}
+                className="text-black text-lg"
+              />
+            </FixedButon>
+          </div>
+
+          {/* Title Tengah */}
+          <h1
+            className="
+text-lg sm:text-xl text-black ml-5 px-1 h-4 w-4
+  "
+          >
+            Bimasni
+          </h1>
+        </nav>
         <FixedButon onClick={handleBack}>
           <FontAwesomeIcon icon={faChevronLeft} className="pr-10 text-black" />
         </FixedButon>
@@ -66,18 +117,18 @@ const Page: React.FC = () => {
               className="bg-slate-300 rounded-sm h-[400px] md:h-[600px] w-[80vw] md:w-[30vw] grayscale hover:grayscale-0"
             >
               <img
-                src="/images/mybim.jpg"
+                src="/images/bymni.jpg"
                 alt="Example Image"
                 style={{ width: "100%", height: "auto" }}
               />
             </motion.div>
           </div>
           <div className="z-10 w-full absolute md:w-auto md:left-[10%] top-[60%] md:top-1/3 col-span-2 flex flex-col justify-center items-start md:items-start text-start px-10 pt-4 backdrop-filter backdrop-blur-sm md:backdrop-blur-none md:backdrop-filter-none bg-gray-100 bg-opacity-50 md:bg-transparent md:pt-0">
-            <h1 className="text-5xl font-bold text-black bg-transparent bg-opacity-50 md:bg-white lg:bg-transparent md-px-0 md:text-8xl">
+            <h1 className="text-5xl font-bold text-black bg-transparent bg-opacity-50 md:bg-white lg:bg-transparent md-px-0 md:text-7xl">
               My Projects
             </h1>
             <Hr />
-            <p className="title text-xl mt-4 tracking-wider text-gray-900 leading-[1.7rem] mb-5">
+            <p className="title mt-4 tracking-wider text-gray-900 leading-[1.7rem] mb-5">
               List of my projects that I have done and{" "}
               <span className="bg-transparent bg-opacity-50 md:bg-gray-100 xl:bg-transparent">
                 currently working on.
@@ -99,13 +150,7 @@ const Page: React.FC = () => {
             </motion.div>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-start w-full pl-10 mt-10 md:pl-32">
-          <div className="flex flex-col items-center self-start justify-center my-5">
-            <div className="self-start h-1 mb-3 bg-gray-700 rounded-full w-28"></div>
-            <div className="h-1 translate-x-12 bg-gray-700 rounded-full w-28"></div>
-            <h1 className="mt-3 text-3xl font-bold">Highlight</h1>
-          </div>
-        </div>
+        <div className="flex flex-col items-center justify-start w-full pl-10 mt-10 md:pl-32"></div>
         <div className="container relative grid w-screen grid-cols-1 gap-4 px-10 mx-auto mb-10 md:grid-cols-2">
           <div className="flex flex-col items-start justify-center mb-5">
             <div className="relative w-full images aspect-square">
@@ -116,7 +161,7 @@ const Page: React.FC = () => {
                   className="w-full h-full shadow-lg"
                 >
                   <img
-                    src="/images/mybim.jpg"
+                    src="/projects/chat/chat2.png"
                     alt="Example Image"
                     style={{ width: "100%", height: "auto" }}
                   />
@@ -130,7 +175,7 @@ const Page: React.FC = () => {
                   className="w-full h-full shadow-lg"
                 >
                   <img
-                    src="/images/mybim.jpg"
+                    src="/projects/chat/chat3.png"
                     alt="Example Image"
                     style={{ width: "100%", height: "auto" }}
                   />
@@ -144,7 +189,7 @@ const Page: React.FC = () => {
                   className="w-full h-full shadow-lg"
                 >
                   <img
-                    src="/images/mybim.jpg"
+                    src="/projects/chat/chat4.png"
                     alt="Example Image"
                     style={{ width: "100%", height: "auto" }}
                   />
@@ -201,32 +246,41 @@ const Page: React.FC = () => {
             </motion.h1>
           </div>
         </div>
-        <div className="container grid w-screen grid-cols-1 gap-4 px-10 mx-auto mb-10 cursor-pointer md:grid-cols-2">
-          loop projects data
+
+        {/* PROJECT GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-10 md:px-32 py-10">
           {projects.map((project, index) => (
-            <Link href={`projects/${project.slug}`} key={index}>
+            <Link href={`/projects/${project.slug}`} key={index}>
               <motion.div
-                className="relative z-10 flex flex-col items-start justify-center w-full h-auto px-5 py-20 mb-5 bg-gray-400 md:px-10 group/tes md:py-2 aspect-video"
-                initial={{ opacity: 0, x: -200 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ type: "spring" }}
+                className="relative group w-full aspect-video overflow-hidden cursor-pointer"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
               >
-                <img
-                  src="/images/mybim.jpg"
-                  alt="Example Image"
-                  style={{ width: "100%", height: "auto" }}
+                {/* BACKGROUND IMAGE */}
+                <div
+                  className="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${project.image})` }}
                 />
-                <div className="absolute top-0 left-0 px-4 py-2 bg-gray-600">
-                  <h4 className="text-white">{project.year}</h4>
+
+                {/* DARK OVERLAY */}
+                <div className="absolute inset-0 bg-black/40"></div>
+
+                {/* YEAR */}
+                <div className="absolute top-0 left-0 bg-gray-800 px-3 py-1">
+                  <span className="text-white text-sm">{project.year}</span>
                 </div>
-                <div className="z-10 text-center transition-all duration-500 opacity-100 ease content group-hover/tes:opacity-0">
-                  <h1 className="mb-3 text-3xl font-bold">{project.title}</h1>
-                  <p>{project.desc}</p>
-                  <div className="flex flex-row flex-wrap items-center justify-center mt-5">
-                    {project.tech.split(",").map((t, index) => (
+
+                {/* CONTENT */}
+                <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 transition-opacity duration-300 group-hover:opacity-0">
+                  <h2 className="text-3xl font-bold mb-2">{project.title}</h2>
+                  <p className="text-sm mb-4">{project.desc}</p>
+
+                  <div className="flex flex-wrap justify-center">
+                    {project.tech.split(",").map((t, i) => (
                       <span
-                        key={index}
-                        className="px-4 py-2 m-1 text-white bg-gray-600"
+                        key={i}
+                        className="px-3 py-1 m-1 bg-gray-700 text-xs"
                       >
                         {t}
                       </span>
@@ -237,12 +291,14 @@ const Page: React.FC = () => {
             </Link>
           ))}
         </div>
+
         {/* view in archive btn */}
         <div className="flex flex-col items-center self-start justify-center my-5">
-          <Button variation="primary">
-            <Link href="/Projects/archive">View In Archive</Link>
-          </Button>
+          <Link href="/achive">
+            <Button variation="primary">View In Archive</Button>
+          </Link>
         </div>
+        <Footer />
       </main>
     </>
   );

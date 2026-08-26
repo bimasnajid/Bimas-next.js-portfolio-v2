@@ -7,18 +7,19 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    
+    "typeRoots": ["./node_modules/@types", "./@types"],
+
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "baseUrl": "",
+    // "baseUrl": "",
     "paths": {
       // "@/app/*": ["./app/*"]
       "@/*": ["./*"]
@@ -32,13 +33,4 @@
     "styles/Navbar.module.csc"
   ],
   "exclude": ["node_modules"]
-  
 }
-// {
-//   "compilerOptions": {
-//     "baseUrl": ".",
-//     "paths": {
-//       "@/*": ["./*"]
-//     }
-//   }
-// }
