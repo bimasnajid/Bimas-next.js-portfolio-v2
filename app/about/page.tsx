@@ -7,11 +7,11 @@ import { motion } from "framer-motion";
 import Button from "../../components/Button";
 import FixedButton from "../../components/FixedButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faBars } from "@fortawesome/free-solid-svg-icons";
 import Hr from "../../components/Hr";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/NavView";
 import MyGitHubCalendar from "@/components/CalenderGit";
-// import MyGitHubCalendar from "@/components/CalenderGit";
 
 interface Experience {
   title: string;
@@ -61,39 +61,28 @@ export default function Page() {
   return (
     <>
       <main className="overflow-x-hidden w-full bg-white text-black">
-        {/* NAV BAR */}
-        <nav
-          className="
-            fixed top-0 left-0 w-full
-            h-12 sm:h-14
-            px-4 sm:px-6 md:px-10 lg:px-16
-            flex items-center gap-4
-            bg-white/5 backdrop-blur-md
-            border-b border-white/20
-            shadow-sm
-            z-[60]
-          "
-        >
-          {/* Button Back */}
-          <div className="flex items-center">
-            <FixedButton onClick={handleBack}>
-              <FontAwesomeIcon
-                icon={faChevronLeft}
-                className="text-black text-lg"
+        {/* NAV BAR FIX */}
+        <Navbar />
+        {/* NAVBAR */}
+        {/* Nav End */}
+        <div className="relative flex flex-col items-center justify-center w-screen h-screen gap-4 p-10 mb-10 overflow-hidden">
+          <div className="z-0 mb-48 md:mb-0 md:absolute top-1/4 md:right-[10%] md:-translate-y-16">
+            <motion.div
+              initial={{ scale: 1 }}
+              animate={{ scale: 1.6 }}
+              transition={{ duration: 1, ease: "circOut" }}
+              className="bg-slate-300 rounded-sm h-[400px] md:h-[600px] w-[80vw] md:w-[30vw] grayscale hover:grayscale-0"
+            >
+              <img
+                src="/images/bymni.jpg"
+                alt="Example Image"
+                style={{ width: "100%", height: "auto" }}
               />
-            </FixedButton>
+            </motion.div>
           </div>
-
-          {/* Title Navbar */}
-          <h1 className="text-lg sm:text-xl font-bold text-black">Bimasni</h1>
-        </nav>
-
-        {/* HERO SECTION */}
-        <div className="relative flex flex-col md:flex-row items-center justify-between w-full min-h-screen px-6 sm:px-10 md:px-16 pt-24 pb-12 gap-10">
-          {/* Text Left / Top */}
-          <div className="z-10 w-full md:w-1/2 flex flex-col justify-center items-start text-start">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-black">
-              About Me
+          <div className="z-10 w-full absolute md:w-auto md:left-[10%] top-[60%] md:top-1/3 col-span-2 flex flex-col justify-center items-start md:items-start text-start px-10 pt-4 backdrop-filter backdrop-blur-sm md:backdrop-blur-none md:backdrop-filter-none bg-gray-100 bg-opacity-50 md:bg-transparent md:pt-0">
+            <h1 className="text-5xl font-bold text-black bg-transparent bg-opacity-50 md:bg-white lg:bg-transparent md-px-0 md:text-7xl">
+              My About
             </h1>
             <Hr />
             <p className="title mt-4 tracking-wider text-gray-900 leading-relaxed mb-5">
@@ -101,34 +90,18 @@ export default function Page() {
               <span className="font-semibold text-black">my interest.</span>
             </p>
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "circOut" }}
               onClick={() => {
                 window.scrollTo({
-                  top: window.innerHeight,
+                  top: 1000,
                   behavior: "smooth",
                 });
               }}
-              className="mb-3 cursor-pointer"
+              className="mb-3"
             >
               <Button variation="primary">Scroll Down</Button>
-            </motion.div>
-          </div>
-
-          {/* Hero Image Right / Bottom */}
-          <div className="z-0 w-full md:w-1/2 flex justify-center items-center">
-            <motion.div
-              initial={{ scale: 1 }}
-              animate={{ scale: 1.1 }}
-              transition={{ ease: "circOut", duration: 1 }}
-              className="bg-slate-300 rounded-lg overflow-hidden h-[300px] sm:h-[400px] md:h-[500px] w-full max-w-md grayscale hover:grayscale-0 transition-all duration-300 shadow-xl"
-            >
-              <img
-                src="/images/mee3.jpg"
-                alt="Example Image"
-                className="w-full h-full object-cover"
-              />
             </motion.div>
           </div>
         </div>
@@ -278,6 +251,7 @@ export default function Page() {
         </div>
 
         <MyGitHubCalendar username="bimasnajid" />
+
         {/* EDUCATION & EXPERIENCE HEADER */}
         <div className="flex flex-col items-center justify-start w-full px-6 md:pl-32 mt-16">
           <div className="flex flex-col items-center self-start justify-center my-5">
@@ -389,7 +363,6 @@ export default function Page() {
 
           {/* TIMELINE CONTAINER */}
           <div className="relative w-full max-w-5xl mx-auto">
-            {/* GARIS TENGAH (Rata Kiri di Mobile, Tengah di Desktop) */}
             <motion.div
               className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[3px] bg-lime-500 -translate-x-1/2"
               initial={{ height: 0 }}
@@ -420,7 +393,6 @@ export default function Page() {
                   transition={{ duration: 0.7 }}
                   viewport={{ once: false }}
                 >
-                  {/* LEFT COLUMN (Desktop Only) */}
                   <div className="hidden md:flex w-1/2 justify-end pr-12 relative">
                     {isEven && (
                       <motion.div
@@ -442,7 +414,6 @@ export default function Page() {
                     )}
                   </div>
 
-                  {/* DOT TIMELINE */}
                   <div className="absolute left-4 md:left-1/2 top-6 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 z-10">
                     <motion.div
                       initial={{ scale: 0 }}
@@ -455,9 +426,7 @@ export default function Page() {
                     </motion.div>
                   </div>
 
-                  {/* RIGHT COLUMN (Desktop & Mobile) */}
                   <div className="w-full md:w-1/2 pl-12 md:pl-12">
-                    {/* Di Mobile, semua kartu ditampilkan di sebelah kanan garis */}
                     <motion.div
                       className="w-full bg-white p-6 rounded-2xl shadow-lg border-l-4 border-lime-500 md:hidden"
                       initial={{ scale: 0.9, opacity: 0 }}
@@ -472,7 +441,6 @@ export default function Page() {
                       <p className="text-gray-400 mt-3 text-sm">{exp.date}</p>
                     </motion.div>
 
-                    {/* Di Desktop, hanya menampilkan urutan ganjil */}
                     {!isEven && (
                       <motion.div
                         className="hidden md:block w-full bg-white p-6 rounded-2xl shadow-lg border-l-4 border-lime-500"

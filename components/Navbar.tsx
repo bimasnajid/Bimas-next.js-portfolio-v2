@@ -24,15 +24,12 @@ export default function Navbar() {
         h-12 sm:h-14
         px-4 sm:px-6 md:px-10 lg:px-16
         flex items-center justify-between
-        bg-white/5 backdrop-blur-md
-        border-b border-white/20
-        shadow-sm
         z-[60]
       "
       >
         {/* LOGO */}
         <h1
-          className="text-lg sm:text-xl px-5 
+          className="text-lg sm:text-3xl px-5 
         text-black "
         >
           Bimasni
@@ -76,7 +73,7 @@ export default function Navbar() {
               exit="closed"
               transition={{ staggerChildren: 0.2 }}
             >
-              <h1 className="text-4xl sm:text-5xl font-bold">Menu</h1>
+              <div className="text-4xl sm:text-5xl font-bold">Menu</div>
 
               <motion.a
                 variants={itemVariants}

@@ -10,11 +10,11 @@ import Footer from "@/components/Footer";
 // import SayurKu from "@/public/projects/sayurKu/leandig_page.png"
 
 import Hr from "@/components/Hr";
-import FixedButon from "@/components/FixedButton";
+import FixedButton from "@/components/FixedButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { StaticImageData } from "next/image";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/NavView";
 
 interface projects {
   title: string;
@@ -74,40 +74,11 @@ const Page: React.FC = () => {
   return (
     <>
       <main className="overflow-hidden">
-        <nav
-          className="
-  fixed top-0 left-0 w-full
-  h-12 sm:h-14
-  px-4 sm:px-6 md:px-10 lg:px-16
-  flex items-center
-  bg-white/5 backdrop-blur-md
-  border-b border-white/20
-  shadow-sm
-  z-[60]
-"
-        >
-          {/* Button Back (Kiri) */}
-          <div className="flex itens-center">
-            <FixedButon onClick={handleBack}>
-              <FontAwesomeIcon
-                icon={faChevronLeft}
-                className="text-black text-lg"
-              />
-            </FixedButon>
-          </div>
-
-          {/* Title Tengah */}
-          <h1
-            className="
-text-lg sm:text-xl text-black ml-5 px-1 h-4 w-4
-  "
-          >
-            Bimasni
-          </h1>
-        </nav>
-        <FixedButon onClick={handleBack}>
-          <FontAwesomeIcon icon={faChevronLeft} className="pr-10 text-black" />
-        </FixedButon>
+        {/* navbar */}
+        <Navbar />
+        {/* navbar end */}
+        
+        {/* Nav End */}
         <div className="relative flex flex-col items-center justify-center w-screen h-screen gap-4 p-10 mb-10 overflow-hidden">
           <div className="z-0 mb-48 md:mb-0 md:absolute top-1/4 md:right-[10%] md:-translate-y-16">
             <motion.div

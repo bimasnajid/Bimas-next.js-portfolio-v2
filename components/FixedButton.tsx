@@ -2,16 +2,27 @@ import React, { ReactNode } from "react";
 
 interface FixedButtonProps {
   children: ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick: () => void;
 }
 
-const FixedButton: React.FC<FixedButtonProps> = ({ children, onClick }) => (
-  <button
-    onClick={onClick}
-    className="fixed top-2 -left-2 md:left-10 flex justify-center items-center rounded-full p-4 transition duration-300 ease-in-out z-50 bg-transparent"
-  >
-    {children}
-  </button>
-);
-
-export default FixedButton;
+export default function FixedButton({
+  children,
+  onClick,
+}: FixedButtonProps): React.ReactElement {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="
+        flex h-10 w-10
+        shrink-0
+        items-center justify-center
+        rounded-full
+        transition
+        hover:bg-gray-100
+      "
+    >
+      {children}
+    </button>
+  );
+}
