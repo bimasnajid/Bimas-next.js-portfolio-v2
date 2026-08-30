@@ -31,37 +31,119 @@ const HomePage: React.FC = () => (
     <div className="w-full">
       <ReactFullpage
         anchors={["home", "about", "projects", "contact"]}
-        scrollingSpeed={1000} /* Menyesuaikan kecepatan scroll */
-        credits={{ enabled: false }}
         menu="#Sidebar"
+        licenseKey="gplv3-license"
+        scrollingSpeed={1200}
+        easingcss3="cubic-bezier(0.65, 0, 0.35, 1)"
+        easing="easeInOutCubic"
         autoScrolling={true}
         fitToSection={true}
-        fitToSectionDelay={0}
+        fitToSectionDelay={300}
         scrollBar={false}
-        render={({ state, fullpageApi }) => {
+        navigation={false}
+        keyboardScrolling={true}
+        continuousVertical={false}
+        loopTop={false}
+        loopBottom={false}
+        touchSensitivity={15}
+        bigSectionsDestination="top"
+        credits={{
+          enabled: false,
+        }}
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
               <div className="section">
-                <div className="container grid grid-cols-1 gap-4 p-10 mx-auto overflow-hidden md:grid-cols-3 md:px-20">
+                <div
+                  className="
+      section-container
+      grid
+      grid-cols-1
+      gap-6
+      px-4
+      py-8
+      sm:gap-8
+      sm:px-6
+      sm:py-10
+      md:grid-cols-3
+      md:gap-8
+      md:px-10
+      lg:px-16
+      xl:px-20
+    "
+                >
                   <motion.div
-                    className="flex flex-col items-center justify-center col-span-2 text-center md:items-start md:text-start"
+                    className="
+        col-span-1
+        flex
+        flex-col
+        items-center
+        justify-center
+        text-center
+        md:col-span-2
+        md:items-start
+        md:text-start
+      "
                     initial={{ x: -100, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{
                       type: "spring",
                     }}
                   >
-                    <div className="block col-span-1 mx-auto my-10 md:hidden">
-                      <div className="bg-slate-500 h-60 w-60 grayscale hover:grayscale-0 rounded-full">
+                    {/* MOBILE IMAGE */}
+                    <div
+                      className="
+          col-span-1
+          mx-auto
+          mb-6
+          mt-4
+          block
+          md:hidden
+        "
+                    >
+                      <div
+                        className="
+            aspect-square
+            w-40
+            overflow-hidden
+            rounded-full
+            bg-slate-500
+            grayscale
+            transition-all
+            duration-300
+            hover:grayscale-0
+            sm:w-48
+          "
+                      >
                         <img
                           src="/images/bymni.jpg"
                           alt="Example Image"
-                          style={{ width: "100%", height: "auto" }}
+                          className="
+              responsive-image
+              h-full
+              w-full
+              object-cover
+            "
                         />
                       </div>
                     </div>
+
                     <motion.h3
-                      className="uppercase font-normal text tracking-[.5rem] text-gray-500 px-8"
+                      className="
+          px-4
+          text-center
+          text-xs
+          font-normal
+          uppercase
+          tracking-[0.2rem]
+          text-gray-500
+          sm:text-sm
+          sm:tracking-[0.3rem]
+          md:px-0
+          md:text-start
+          lg:text-base
+          lg:tracking-[0.5rem]
+        "
                       initial={{ x: -100, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
                       transition={{
@@ -71,8 +153,22 @@ const HomePage: React.FC = () => (
                     >
                       Bimas Najid Ilmansyah
                     </motion.h3>
+
                     <motion.h1
-                      className="my-2 text-5xl font-bold text-black md:text-6xl lg:text-7xl 2xl:text-8xl md:my-5 px-7"
+                      className="
+          my-3
+          px-4
+          text-4xl
+          font-bold
+          leading-tight
+          text-black
+          sm:text-5xl
+          md:my-5
+          md:px-0
+          md:text-6xl
+          lg:text-7xl
+          xl:text-8xl
+        "
                       initial={{ x: -100, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
                       transition={{
@@ -82,8 +178,23 @@ const HomePage: React.FC = () => (
                     >
                       Full Stack Developer
                     </motion.h1>
+
                     <motion.p
-                      className="title text-md 2xl:text-xl mt-4 tracking-wider text-gray-500 leading-[1.7rem] px-8"
+                      className="
+          title
+          mt-4
+          max-w-2xl
+          px-4
+          text-sm
+          leading-7
+          tracking-wider
+          text-gray-500
+          sm:text-base
+          sm:leading-8
+          md:px-0
+          lg:text-lg
+          xl:text-xl
+        "
                       initial={{ x: -100, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
                       transition={{
@@ -96,8 +207,24 @@ const HomePage: React.FC = () => (
                       Design, Mobile and AI Development. I love to learn new
                       things and always open to new opportunities.
                     </motion.p>
+
                     <motion.div
-                      className="flex flex-row items-center justify-center mt-10 space-x-4 buttons px-8"
+                      className="
+          buttons
+          mt-8
+          flex
+          w-full
+          flex-col
+          items-center
+          justify-center
+          gap-4
+          px-4
+          sm:w-auto
+          sm:flex-row
+          sm:justify-start
+          sm:px-0
+          md:mt-10
+        "
                       initial={{ x: -100, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
                       transition={{
@@ -106,15 +233,25 @@ const HomePage: React.FC = () => (
                       }}
                     >
                       <Button variation="primary">
-                        <Link href={"/docs/cv.pdf"}>Download CV</Link>
+                        <Link href="/docs/cv.pdf">Download CV</Link>
                       </Button>
+
                       <Button variation="secondary">
                         <a href="#contact">Contact Me</a>
                       </Button>
                     </motion.div>
                   </motion.div>
+
+                  {/* DESKTOP IMAGE */}
                   <motion.div
-                    className="items-center justify-center hidden col-span-1 mx-auto md:flex "
+                    className="
+        col-span-1
+        mx-auto
+        hidden
+        items-center
+        justify-center
+        md:flex
+      "
                     initial={{ x: 100, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{
@@ -122,300 +259,742 @@ const HomePage: React.FC = () => (
                       type: "spring",
                     }}
                   >
-                    <div className="w-auto h-auto rounded-full lg:px-12 grayscale hover:grayscale-0">
+                    <div
+                      className="
+          w-full
+          max-w-xs
+          overflow-hidden
+          rounded-full
+          grayscale
+          transition-all
+          duration-300
+          hover:grayscale-0
+          md:max-w-sm
+          lg:max-w-md
+        "
+                    >
                       <img
                         src="/images/HIMA_BIMAS.png"
                         alt="Example Image"
-                        style={{ width: "100%", height: "auto" }}
+                        className="
+            responsive-image
+            h-auto
+            w-full
+            object-cover
+          "
                       />
                     </div>
                   </motion.div>
                 </div>
               </div>
               <div className="section">
-                <div className="relative flex flex-col items-center justify-center w-screen gap-4 overflow-hidden md:h-screen">
-                  <div className="z-0 mb-48 md:mb-0 md:absolute top-1/4 md:right-[10%] md:-translate-y-16">
-                    <motion.div
-                      className="bg-slate-300 rounded-sm w-[80vw] md:w-[30vw] grayscale hover:grayscale-0"
-                      initial={{
-                        x: 300,
-                        opacity: 0,
-                        z: -100,
-                      }}
-                      whileInView={{
-                        x: 0,
-                        opacity: 1,
-                        z: 0,
-                      }}
-                      transition={{
-                        delay: 0.5,
-                        type: "spring",
-                        stiffness: 100,
-                        damping: 20,
-                      }}
+                <div
+                  className="
+      w-full
+      min-h-[100svh]
+      px-5
+      py-20
+      sm:px-8
+      md:px-12
+      lg:px-20
+      xl:px-28
+      2xl:px-36
+      flex
+      items-center
+    "
+                >
+                  <div
+                    className="
+        w-full
+        max-w-[1400px]
+        mx-auto
+        grid
+        grid-cols-1
+        items-center
+        gap-12
+        md:grid-cols-2
+        lg:gap-20
+      "
+                  >
+                    {/* ================= TEXT ================= */}
+                    <div
+                      className="
+          order-2
+          flex
+          flex-col
+          items-center
+          text-center
+          md:order-1
+          md:items-start
+          md:text-left
+        "
                     >
-                      <img
-                        src="/images/mee3.jpg"
-                        alt="Example Image"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
+                      <motion.h1
+                        className="
+            w-full
+            break-words
+            text-4xl
+            font-bold
+            leading-tight
+            text-black
+            sm:text-5xl
+            md:text-6xl
+            lg:text-7xl
+            xl:text-8xl
+          "
+                        initial={{ x: -100, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{
+                          delay: 0.1,
+                          type: "spring",
                         }}
-                      />
-                    </motion.div>
-                  </div>
-                  <div className="z-10 w-full absolute md:w-auto md:left-[10%] top-[60%] md:top-1/3 col-span-2 flex flex-col justify-center items-start md:items-start text-start px-10 py-5">
-                    <motion.h1
-                      className="px-3 text-6xl font-bold text-black bg-white bg-opacity-50 lg:bg-transparent md-px-0 md:text-7xl"
-                      initial={{ x: -100, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{
-                        delay: 0.1,
-                        type: "spring",
-                      }}
-                    >
-                      About Me
-                    </motion.h1>
-                    <Hr />
-                    <motion.p
-                      className="title mt-4 tracking-wider text-gray-500 leading-[1.7rem] mb-5"
-                      initial={{ x: -100, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{
-                        delay: 0.2,
-                        type: "spring",
-                      }}
-                    >
-                      A brief introduction about me and my interest.
-                    </motion.p>
-                    <motion.div
-                      initial={{ y: 40, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
-                      transition={{
-                        delay: 0.3,
-                        type: "spring",
-                      }}
-                    >
-                      <Button variation="primary">
-                        <Link href="/about">Learn More</Link>
-                      </Button>
-                    </motion.div>
-                  </div>
-                </div>
-              </div>
-              <div className="section">
-                <div className="relative flex flex-col items-center justify-center w-screen gap-4 p-10 overflow-hidden md:h-screen">
-                  <div className="z-0 mb-48 md:mb-0 md:absolute top-1/4 md:right-[10%] md:-translate-y-16">
-                    <motion.div
-                      className="bg-slate-300 rounded-sm w-[80vw] md:w-[30vw] grayscale hover:grayscale-0 relative"
-                      initial={{ x: 300, opacity: 0, z: -100 }}
-                      whileInView={{ x: 0, opacity: 1, z: 0 }}
-                      transition={{
-                        delay: 0.5,
-                        type: "spring",
-                        stiffness: 100,
-                        damping: 20,
-                      }}
-                    >
-                      <img
-                        src="/images/projects-all.jpg"
-                        alt="Projects All"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
+                        viewport={{ once: true }}
+                      >
+                        About Me
+                      </motion.h1>
+
+                      <div className="mt-4">
+                        <Hr />
+                      </div>
+
+                      <motion.p
+                        className="
+            title
+            mt-5
+            mb-6
+            w-full
+            max-w-xl
+            text-sm
+            leading-7
+            tracking-wider
+            text-gray-500
+            sm:text-base
+            sm:leading-8
+            lg:text-lg
+          "
+                        initial={{ x: -100, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{
+                          delay: 0.2,
+                          type: "spring",
                         }}
-                      />
-                    </motion.div>
-                  </div>
-                  <div className="z-10 w-full absolute md:w-auto md:left-[10%] top-[60%] md:top-1/3 col-span-2 flex flex-col justify-center items-start md:items-start text-start px-10 py-5">
-                    <motion.h1
-                      className="px-3 text-6xl font-bold text-black bg-white bg-opacity-50 lg:bg-transparent md-px-0 md:text-7xl"
-                      initial={{ x: -100, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{ delay: 0.1, type: "spring" }}
-                    >
-                      My Projects
-                    </motion.h1>
-                    <Hr />
-                    <motion.p
-                      className="title mt-4 tracking-wider text-gray-500 leading-[1.7rem] mb-5 "
-                      initial={{ x: -100, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{ delay: 0.2, type: "spring" }}
-                    >
-                      This is some of my projects that I have done{" "}
-                      <span className="marker:bg-transparent bg-opacity-50 md:bg-gray-100">
-                        and currently working on.
-                      </span>
-                    </motion.p>
-                    <motion.div
-                      initial={{ y: 40, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.3, type: "spring" }}
-                    >
-                      <Button variation="primary">
-                        <Link href="/projects">Learn More</Link>
-                      </Button>
-                    </motion.div>
-                  </div>
-                </div>
-              </div>
-              <div className="section">
-                <div className="relative flex flex-col items-center justify-center w-screen gap-4 p-10 overflow-hidden md:h-screen">
-                  <div className="z-0 mb-48 md:mb-0 md:absolute top-1/4 md:right-[10%] md:-translate-y-16">
-                    <motion.div
-                      className="bg-slate-300 rounded-sm w-[80vw] md:w-[30vw] grayscale hover:grayscale-0 relative"
-                      initial={{ x: 300, opacity: 0, z: -100 }}
-                      whileInView={{ x: 0, opacity: 1, z: 0 }}
-                      transition={{
-                        delay: 0.5,
-                        type: "spring",
-                        stiffness: 100,
-                        damping: 20,
-                      }}
-                    >
-                      <img
-                        src="/images/setup.jpg"
-                        alt="Example Image"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                      />
-                    </motion.div>
-                  </div>
-                  <div className="z-10 w-full absolute md:w-auto md:left-[10%] top-[60%] md:top-1/3 col-span-2 flex flex-col justify-center items-start md:items-start text-start px-10 overflow-hidden">
-                    <motion.h1
-                      className="px-3 mb-3 text-6xl font-bold text-black bg-white bg-opacity-50 lg:bg-transparent md-px-0 md:text-7xl"
-                      initial={{ x: -100, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{ delay: 0.1, type: "spring" }}
-                    >
-                      Get In Touch
-                    </motion.h1>
-                    <Hr />
-                    <motion.p
-                      className="title mt-2 tracking-wider text-gray-500 leading-[1.7rem] md:mb-5"
-                      initial={{ x: -100, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{ delay: 0.2, type: "spring" }}
-                    >
-                      Feel free to contact me if you have any{" "}
-                      <span className="bg-transparent bg-opacity-50 md:bg-gray-100 ">
-                        questions or just want to say hi.
-                      </span>
-                    </motion.p>
-                    <motion.p
-                      className="title mt-2 tracking-wider text-gray-500 leading-[1.7rem] mb-5"
-                      initial={{ x: -100, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{ delay: 0.3, type: "spring" }}
-                    >
-                      <a href="mailto:bimasnajid999@gmail.com?subject=Hello&body=Hello Mybimas,">
-                        bimasoffcl09@gmail.com
-                      </a>
-                    </motion.p>
-                    {/* Social Media Icons */}
-                    <div className="flex items-center justify-center space-x-4">
-                      <motion.a
-                        href="mailto:bimasnajid999@gmail.com?subject=Hello&body=Hello Mybimas,"
-                        className="flex items-center justify-center text-gray-100 transition-all duration-300 ease-in-out bg-lime-500 rounded-full w-14 h-14 hover:bg-gray-400"
+                        viewport={{ once: true }}
+                      >
+                        A brief introduction about me and my interest.
+                      </motion.p>
+
+                      <motion.div
                         initial={{ y: 40, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         transition={{
-                          y: { delay: 0.1 },
-                          opacity: { delay: 0.2 },
+                          delay: 0.3,
+                          type: "spring",
                         }}
+                        viewport={{ once: true }}
                       >
-                        <FontAwesomeIcon
-                          icon={faEnvelope}
-                          className="text-3xl"
-                        />
-                      </motion.a>
-                      <motion.a
-                        href="https://github.com/bimasnajid"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center text-gray-100 transition-all duration-300 ease-in-out bg-lime-500 rounded-full w-14 h-14 hover:bg-gray-400"
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        <Button variation="primary">
+                          <Link href="/about">Learn More</Link>
+                        </Button>
+                      </motion.div>
+                    </div>
+
+                    {/* ================= IMAGE ================= */}
+                    <div
+                      className="
+          order-1
+          flex
+          w-full
+          items-center
+          justify-center
+          md:order-2
+          md:justify-end
+        "
+                    >
+                      <motion.div
+                        className="
+    aspect-square
+    w-[70vw]
+    max-w-[320px]
+    shrink-0
+    overflow-hidden
+    rounded-sm
+    bg-slate-200
+    grayscale
+    transition-all
+    duration-300
+    hover:grayscale-0
+    sm:w-[60vw]
+    sm:max-w-[400px]
+    md:w-full
+    md:max-w-[450px]
+    lg:max-w-[500px]
+    xl:max-w-[550px]
+  "
+                        initial={{
+                          x: 100,
+                          opacity: 0,
+                        }}
+                        whileInView={{
+                          x: 0,
+                          opacity: 1,
+                        }}
                         transition={{
-                          y: { delay: 0.2 },
-                          opacity: { delay: 0.3 },
+                          delay: 0.5,
+                          type: "spring",
+                          stiffness: 100,
+                          damping: 20,
                         }}
+                        viewport={{ once: true }}
                       >
-                        <FontAwesomeIcon icon={faGithub} className="text-3xl" />
-                      </motion.a>
-                      <motion.a
-                        href="https://www.instagram.com/bimasni_/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center text-gray-100 transition-all duration-300 ease-in-out bg-lime-500 rounded-full w-14 h-14 hover:bg-gray-400"
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{
-                          y: { delay: 0.3 },
-                          opacity: { delay: 0.4 },
-                        }}
-                      >
-                        <FontAwesomeIcon
-                          icon={faInstagram}
-                          className="text-3xl"
+                        <img
+                          src="/images/me3.jpg"
+                          alt="About Me"
+                          className="
+      block
+      h-full
+      w-full
+      object-cover
+    "
                         />
-                      </motion.a>
-                      <motion.a
-                        href="https://www.linkedin.com/in/bimas-najid-ilmansyah-097a9127a/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center text-gray-100 transition-all duration-300 ease-in-out bg-lime-500 rounded-full w-14 h-14 hover:bg-gray-400"
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="section">
+                <div
+                  className="
+      flex
+      min-h-[100svh]
+      w-full
+      items-center
+      px-5
+      py-16
+      sm:px-8
+      md:px-12
+      lg:px-20
+      xl:px-28
+      2xl:px-36
+    "
+                >
+                  <div
+                    className="
+        mx-auto
+        grid
+        w-full
+        max-w-[1400px]
+        grid-cols-1
+        items-center
+        gap-12
+        md:grid-cols-2
+        lg:gap-20
+      "
+                  >
+                    {/* ================= TEXT PROJECT ================= */}
+                    <div
+                      className="
+          order-2
+          flex
+          flex-col
+          items-center
+          text-center
+          md:order-1
+          md:items-start
+          md:text-left
+        "
+                    >
+                      <motion.h1
+                        className="
+            w-full
+            break-words
+            text-4xl
+            font-bold
+            leading-tight
+            text-black
+            sm:text-5xl
+            md:text-6xl
+            lg:text-7xl
+            xl:text-8xl
+          "
+                        initial={{ x: -100, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
                         transition={{
-                          y: { delay: 0.4 },
-                          opacity: { delay: 0.5 },
+                          delay: 0.1,
+                          type: "spring",
                         }}
+                        viewport={{ once: true }}
                       >
-                        <FontAwesomeIcon
-                          icon={faLinkedin}
-                          className="text-3xl"
-                        />
-                      </motion.a>
-                      <motion.a
-                        href="https://discord.com/channels/@me"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center text-gray-100 transition-all duration-300 ease-in-out bg-lime-500 rounded-full w-14 h-14 hover:bg-gray-400"
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        My Projects
+                      </motion.h1>
+
+                      <div className="mt-4">
+                        <Hr />
+                      </div>
+
+                      <motion.p
+                        className="
+            title
+            mt-5
+            mb-6
+            w-full
+            max-w-xl
+            px-2
+            text-sm
+            leading-7
+            tracking-wider
+            text-gray-500
+            sm:px-0
+            sm:text-base
+            sm:leading-8
+            lg:text-lg
+          "
+                        initial={{ x: -100, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
                         transition={{
-                          y: { delay: 0.5 },
-                          opacity: { delay: 0.6 },
+                          delay: 0.2,
+                          type: "spring",
                         }}
+                        viewport={{ once: true }}
                       >
-                        <FontAwesomeIcon
-                          icon={faDiscord}
-                          className="text-3xl"
-                        />
-                      </motion.a>
-                      <motion.a
-                        href="https://whatsapp.com/send?phone=+62881027589004"
-                        target="_blank"
-                        className="flex items-center justify-center text-gray-100 transition-all duration-300 ease-in-out bg-lime-500 rounded-full w-14 h-14 hover:bg-gray-400"
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        This is some of my projects that I have done and
+                        currently working on.
+                      </motion.p>
+
+                      <motion.div
+                        initial={{ y: 40, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
                         transition={{
-                          y: { delay: 0.5 },
-                          opacity: { delay: 0.6 },
+                          delay: 0.3,
+                          type: "spring",
                         }}
+                        viewport={{ once: true }}
                       >
-                        <FontAwesomeIcon
-                          icon={faWhatsapp}
-                          className="text-3xl"
+                        <Button variation="primary">
+                          <Link href="/projects">Learn More</Link>
+                        </Button>
+                      </motion.div>
+                    </div>
+
+                    {/* ================= IMAGE PROJECT ================= */}
+                    <div
+                      className="
+          order-1
+          flex
+          w-full
+          items-center
+          justify-center
+          md:order-2
+          md:justify-end
+        "
+                    >
+                      <motion.div
+                        className="
+            aspect-square
+            w-[70vw]
+            max-w-[320px]
+            overflow-hidden
+            rounded-sm
+            bg-slate-200
+            grayscale
+            transition-all
+            duration-300
+            hover:grayscale-0
+
+            sm:w-[60vw]
+            sm:max-w-[400px]
+
+            md:w-full
+            md:max-w-[450px]
+
+            lg:max-w-[500px]
+
+            xl:max-w-[550px]
+          "
+                        initial={{
+                          x: 100,
+                          opacity: 0,
+                        }}
+                        whileInView={{
+                          x: 0,
+                          opacity: 1,
+                        }}
+                        transition={{
+                          delay: 0.5,
+                          type: "spring",
+                          stiffness: 100,
+                          damping: 20,
+                        }}
+                        viewport={{ once: true }}
+                      >
+                        <img
+                          src="/images/projects-all.jpg"
+                          alt="Projects All"
+                          className="
+              block
+              h-full
+              w-full
+              object-cover
+            "
                         />
-                      </motion.a>
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="section">
+                <div className="relative w-full min-h-screen overflow-hidden">
+                  <div className="section-container flex flex-col items-center justify-center gap-10 py-20 md:min-h-screen md:grid md:grid-cols-2 md:gap-12 md:py-10">
+                    {/* ================= FOTO ================= */}
+                    <div className="order-1 flex items-center justify-center w-full md:order-2">
+                      <motion.div
+                        className="
+    aspect-square
+    w-[70vw]
+    max-w-[320px]
+    shrink-0
+    overflow-hidden
+    rounded-sm
+    bg-slate-200
+    grayscale
+    transition-all
+    duration-300
+    hover:grayscale-0
+    sm:w-[60vw]
+    sm:max-w-[400px]
+    md:w-full
+    md:max-w-[450px]
+    lg:max-w-[500px]
+    xl:max-w-[550px]
+  "
+                        initial={{
+                          x: 100,
+                          opacity: 0,
+                        }}
+                        whileInView={{
+                          x: 0,
+                          opacity: 1,
+                        }}
+                        transition={{
+                          delay: 0.5,
+                          type: "spring",
+                          stiffness: 100,
+                          damping: 20,
+                        }}
+                        viewport={{ once: true }}
+                      >
+                        <img
+                          src="/images/setup.jpg"
+                          alt="Get In Touch"
+                          className="
+      block
+      h-full
+      w-full
+      object-cover
+    "
+                        />
+                      </motion.div>
+                    </div>
+
+                    {/* ================= GET IN TOUCH ================= */}
+                    <div className="order-2 flex flex-col justify-center w-full text-center md:order-1 md:text-left">
+                      <motion.h1
+                        className="
+            mb-3
+            text-4xl
+            font-bold
+            text-black
+            sm:text-5xl
+            md:text-6xl
+            lg:text-7xl
+          "
+                        initial={{ x: -100, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{
+                          delay: 0.1,
+                          type: "spring",
+                        }}
+                        viewport={{ once: true }}
+                      >
+                        Get In Touch
+                      </motion.h1>
+
+                      <div className="flex justify-center md:justify-start">
+                        <Hr />
+                      </div>
+
+                      <motion.p
+                        className="
+            title
+            mt-4
+            mb-3
+            max-w-xl
+            tracking-wider
+            text-gray-500
+            leading-relaxed
+            text-sm
+            sm:text-base
+            md:text-lg
+          "
+                        initial={{ x: -100, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{
+                          delay: 0.2,
+                          type: "spring",
+                        }}
+                        viewport={{ once: true }}
+                      >
+                        Feel free to contact me if you have any{" "}
+                        <span className="font-medium text-gray-700">
+                          questions or just want to say hi.
+                        </span>
+                      </motion.p>
+
+                      <motion.p
+                        className="
+            title
+            mb-8
+            break-all
+            tracking-wider
+            text-gray-500
+            text-sm
+            sm:text-base
+            md:text-lg
+          "
+                        initial={{ x: -100, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{
+                          delay: 0.3,
+                          type: "spring",
+                        }}
+                        viewport={{ once: true }}
+                      >
+                        <a
+                          href="mailto:bimasnajid999@gmail.com?subject=Hello&body=Hello Mybimas,"
+                          className="transition-colors hover:text-lime-500"
+                        >
+                          bimasoffcl09@gmail.com
+                        </a>
+                      </motion.p>
+
+                      {/* ================= SOCIAL MEDIA ================= */}
+                      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:justify-start">
+                        {/* EMAIL */}
+                        <motion.a
+                          href="mailto:bimasnajid999@gmail.com?subject=Hello&body=Hello Mybimas,"
+                          className="
+              flex
+              items-center
+              justify-center
+              w-11
+              h-11
+              text-gray-100
+              transition-all
+              duration-300
+              ease-in-out
+              bg-lime-500
+              rounded-full
+              hover:bg-gray-400
+              sm:w-12
+              sm:h-12
+              md:w-14
+              md:h-14
+            "
+                          initial={{ y: 40, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{
+                            y: { delay: 0.1 },
+                            opacity: { delay: 0.2 },
+                          }}
+                          viewport={{ once: true }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faEnvelope}
+                            className="text-xl sm:text-2xl md:text-3xl"
+                          />
+                        </motion.a>
+
+                        {/* GITHUB */}
+                        <motion.a
+                          href="https://github.com/bimasnajid"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="
+              flex
+              items-center
+              justify-center
+              w-11
+              h-11
+              text-gray-100
+              transition-all
+              duration-300
+              bg-lime-500
+              rounded-full
+              hover:bg-gray-400
+              sm:w-12
+              sm:h-12
+              md:w-14
+              md:h-14
+            "
+                          initial={{ opacity: 0, y: 40 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{
+                            y: { delay: 0.2 },
+                            opacity: { delay: 0.3 },
+                          }}
+                          viewport={{ once: true }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faGithub}
+                            className="text-xl sm:text-2xl md:text-3xl"
+                          />
+                        </motion.a>
+
+                        {/* INSTAGRAM */}
+                        <motion.a
+                          href="https://www.instagram.com/bimasni_/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="
+              flex
+              items-center
+              justify-center
+              w-11
+              h-11
+              text-gray-100
+              transition-all
+              duration-300
+              bg-lime-500
+              rounded-full
+              hover:bg-gray-400
+              sm:w-12
+              sm:h-12
+              md:w-14
+              md:h-14
+            "
+                          initial={{ opacity: 0, y: 40 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{
+                            y: { delay: 0.3 },
+                            opacity: { delay: 0.4 },
+                          }}
+                          viewport={{ once: true }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faInstagram}
+                            className="text-xl sm:text-2xl md:text-3xl"
+                          />
+                        </motion.a>
+
+                        {/* LINKEDIN */}
+                        <motion.a
+                          href="https://www.linkedin.com/in/bimas-najid-ilmansyah-097a9127a/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="
+              flex
+              items-center
+              justify-center
+              w-11
+              h-11
+              text-gray-100
+              transition-all
+              duration-300
+              bg-lime-500
+              rounded-full
+              hover:bg-gray-400
+              sm:w-12
+              sm:h-12
+              md:w-14
+              md:h-14
+            "
+                          initial={{ opacity: 0, y: 40 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{
+                            y: { delay: 0.4 },
+                            opacity: { delay: 0.5 },
+                          }}
+                          viewport={{ once: true }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faLinkedin}
+                            className="text-xl sm:text-2xl md:text-3xl"
+                          />
+                        </motion.a>
+
+                        {/* DISCORD */}
+                        <motion.a
+                          href="https://discord.com/channels/@me"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="
+              flex
+              items-center
+              justify-center
+              w-11
+              h-11
+              text-gray-100
+              transition-all
+              duration-300
+              bg-lime-500
+              rounded-full
+              hover:bg-gray-400
+              sm:w-12
+              sm:h-12
+              md:w-14
+              md:h-14
+            "
+                          initial={{ opacity: 0, y: 40 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{
+                            y: { delay: 0.5 },
+                            opacity: { delay: 0.6 },
+                          }}
+                          viewport={{ once: true }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faDiscord}
+                            className="text-xl sm:text-2xl md:text-3xl"
+                          />
+                        </motion.a>
+
+                        {/* WHATSAPP */}
+                        <motion.a
+                          href="https://wa.me/62881027589004"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="
+              flex
+              items-center
+              justify-center
+              w-11
+              h-11
+              text-gray-100
+              transition-all
+              duration-300
+              bg-lime-500
+              rounded-full
+              hover:bg-gray-400
+              sm:w-12
+              sm:h-12
+              md:w-14
+              md:h-14
+            "
+                          initial={{ opacity: 0, y: 40 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{
+                            y: { delay: 0.5 },
+                            opacity: { delay: 0.6 },
+                          }}
+                          viewport={{ once: true }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faWhatsapp}
+                            className="text-xl sm:text-2xl md:text-3xl"
+                          />
+                        </motion.a>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,45 +1,95 @@
-/* ================= FONT ================= */
+/* =====================================================
+   FONT
+===================================================== */
+
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap");
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
+
+
+/* =====================================================
+   TAILWIND
+===================================================== */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ================= ROOT ================= */
+
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =====================================================
+   ROOT / HTML
+===================================================== */
+
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* Edge lama */
+  -ms-overflow-style: none;
 }
 
-/* RESPONSIVE FONT */
-@media (max-width: 1280px) {
-  html {
-    font-size: 15px;
-  }
-}
 
-@media (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-}
+/* =====================================================
+   BODY
+===================================================== */
 
-@media (max-width: 480px) {
-  html {
-    font-size: 13px;
-  }
-}
-
-/* ================= BODY ================= */
 body {
+  min-width: 320px;
+  min-height: 100vh;
+
   font-family: "Poppins", sans-serif;
+
   color: black;
   background-color: rgb(230, 230, 230);
-  overflow-x: hidden; /* penting biar gak geser ke samping */
+
+  /* Mencegah halaman bergeser ke samping */
+  overflow-x: hidden;
+
+  /* Scroll vertikal tetap bisa digunakan */
+  overflow-y: auto;
+
+  -ms-overflow-style: none;
 }
 
-/* ================= TYPOGRAPHY ================= */
+
+/* =====================================================
+   HIDE SCROLLBAR
+   Scroll tetap bisa dilakukan
+===================================================== */
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+
 h1,
 h2,
 h3,
@@ -51,106 +101,476 @@ h6,
 }
 
 span {
-  font-family: "Jost", sans-serif;
+  font-family: inherit;
 }
 
-/* RESPONSIVE HEADING */
-h1 {
-  @apply text-3xl md:text-5xl lg:text-6xl;
+
+/* =====================================================
+   RESPONSIVE TYPOGRAPHY
+===================================================== */
+
+/* Monitor besar */
+@media (min-width: 1920px) {
+  html {
+    font-size: 18px;
+  }
 }
 
-h2 {
-  @apply text-2xl md:text-4xl;
+
+/* Desktop */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  html {
+    font-size: 17px;
+  }
 }
 
-/* ================= SECTION ================= */
+
+/* Laptop */
+@media (min-width: 1025px) and (max-width: 1439px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+/* Tablet landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+
+/* Tablet / Mobile besar */
+@media (min-width: 481px) and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+
+/* =====================================================
+   IMAGE RESPONSIVE
+===================================================== */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  display: block;
+}
+
+
+/* Class khusus gambar responsive */
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
 .section {
-  min-height: 100vh; /* FIX dari height */
+  width: 100%;
+  min-height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem; /* biar aman di HP */
+
+  padding: 2rem 1rem;
+
+  overflow: hidden;
 }
 
-/* ================= CONTAINER ================= */
-.container-custom {
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  .section {
+    min-height: 100svh;
+    padding: 4rem 1rem 2rem;
+  }
+}
+
+
+/* Tablet */
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .section {
+    padding: 4rem 2rem;
+  }
+}
+
+
+/* =====================================================
+   SECTION CONTAINER
+===================================================== */
+
+.section-container {
   width: 100%;
-  max-width: 1200px;
-  margin: auto;
+  max-width: 1280px;
+
+  margin-left: auto;
+  margin-right: auto;
+
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-/* ================= NAVBAR ================= */
-.navbar {
-  z-index: 50;
-  width: 100%;
-}
 
-/* MOBILE NAV FIX */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 1rem;
+/* Mobile */
+
+@media (max-width: 640px) {
+  .section-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
-/* ================= LIST ================= */
-li {
-  @apply list-none relative;
+
+/* Tablet */
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .section-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
-li.active:after {
+
+/* Laptop */
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .section-container {
+    max-width: 1200px;
+
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+
+/* Desktop */
+
+@media (min-width: 1440px) {
+  .section-container {
+    max-width: 1400px;
+
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+
+/* Monitor besar / TV */
+
+@media (min-width: 1920px) {
+  .section-container {
+    max-width: 1600px;
+
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+
+/* =====================================================
+   CUSTOM CONTAINER
+===================================================== */
+
+.container-custom {
+  width: 100%;
+  max-width: 1200px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
+@media (max-width: 640px) {
+  .container-custom {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container-custom {
+    max-width: 960px;
+
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .container-custom {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+  width: 100%;
+  z-index: 60;
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+
+/* =====================================================
+   PREVENT HORIZONTAL OVERFLOW
+===================================================== */
+
+.no-horizontal-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+main,
+section,
+header,
+footer {
+  max-width: 100%;
+}
+
+
+#root,
+#__next {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+/* =====================================================
+   RESPONSIVE MEDIA
+===================================================== */
+
+.responsive-media {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+
+/* =====================================================
+   FLEX RESPONSIVE UTILITIES
+===================================================== */
+
+.responsive-row {
+  display: flex;
+  gap: 2rem;
+}
+
+
+@media (max-width: 768px) {
+  .responsive-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+
+/* =====================================================
+   GRID RESPONSIVE UTILITIES
+===================================================== */
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+
+@media (min-width: 640px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+/* =====================================================
+   LIST ACTIVE
+===================================================== */
+
+li.active::after {
   content: "";
+
   position: absolute;
+
   bottom: -5px;
   left: 0;
+
   width: 100%;
   height: 2px;
+
   background-color: #ffffff;
 }
 
-/* ================= TABLE ================= */
-td,
-th {
-  @apply py-2 px-3;
-}
 
-/* ================= TOOLTIP ================= */
-a[title]:hover:after {
+/* =====================================================
+   TOOLTIP
+===================================================== */
+
+a[title]:hover::after {
   position: absolute;
+
   content: attr(title);
+
   padding: 0.5rem;
+
   white-space: nowrap;
-  z-index: 1;
+
+  z-index: 100;
+
   background-color: #333;
   color: #fff;
+
   border-radius: 4px;
+
   font-size: 0.8rem;
 
-  /* RESPONSIVE POSITION */
   left: 50%;
-  transform: translateX(-50%);
   top: -40px;
+
+  transform: translateX(-50%);
 }
 
-/* ================= SELECTION ================= */
+
+/* =====================================================
+   SELECTION
+===================================================== */
+
 ::selection {
   background: #333;
   color: #fff;
 }
 
-/* ================= FIX MOBILE ================= */
-img {
-  max-width: 100%;
-  height: auto;
-}
 
-/* HINDARI OVERFLOW */
-* {
-  box-sizing: border-box;
-}
+/* =====================================================
+   FULLPAGE.JS
+===================================================== */
 
-/* ================= REMOVE WATERMARK ================= */
 .fp-watermark {
   display: none !important;
+}
+
+
+/* Mencegah horizontal overflow Fullpage */
+
+.fp-section,
+.fp-tableCell {
+  width: 100%;
+  max-width: 100%;
+}
+
+
+/* Mobile fix */
+
+@media (max-width: 768px) {
+
+  .fp-section {
+    overflow: hidden;
+  }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE FIX FOR MOBILE HEIGHT
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .min-h-screen {
+    min-height: 100svh;
+  }
+
+  .h-screen {
+    height: 100svh;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL DEVICES
+===================================================== */
+
+@media (max-width: 360px) {
+
+  body {
+    min-width: 280px;
+  }
+
+  .section-container,
+  .container-custom {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+}
+
+
+/* =====================================================
+   LARGE SCREEN / ULTRAWIDE / TV
+===================================================== */
+
+@media (min-width: 2560px) {
+
+  html {
+    font-size: 20px;
+  }
+
+  .section-container {
+    max-width: 2000px;
+  }
+
 }

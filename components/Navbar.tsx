@@ -29,7 +29,7 @@ export default function Navbar() {
       >
         {/* LOGO */}
         <h1
-          className="text-lg sm:text-3xl px-5 
+          className="text-lg sm:text-2xl px-5 
         text-black "
         >
           Bimasni

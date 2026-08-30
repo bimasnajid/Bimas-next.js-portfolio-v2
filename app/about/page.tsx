@@ -1,18 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Button from "../../components/Button";
-import FixedButton from "../../components/FixedButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faBars } from "@fortawesome/free-solid-svg-icons";
 import Hr from "../../components/Hr";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/NavView";
 import MyGitHubCalendar from "@/components/CalenderGit";
-
 interface Experience {
   title: string;
   company: string;

@@ -5,14 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
-
-// main project image
-// import SayurKu from "@/public/projects/sayurKu/leandig_page.png"
-
 import Hr from "@/components/Hr";
-import FixedButton from "@/components/FixedButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { StaticImageData } from "next/image";
 import Navbar from "@/components/NavView";
 
