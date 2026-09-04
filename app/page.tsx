@@ -210,20 +210,19 @@ const HomePage: React.FC = () => (
 
                     <motion.div
                       className="
-          buttons
-          mt-8
-          flex
-          w-full
-          flex-col
-          items-center
-          justify-center
-          gap-4
-          px-4
-          sm:w-auto
-          sm:flex-row
-          sm:justify-start
-          sm:px-0
-          md:mt-10
+        buttons
+        mt-8
+        flex
+        w-full
+        flex-row
+        items-center
+        justify-center
+        gap-4
+        px-4
+        sm:w-auto
+        sm:justify-start
+        sm:px-0
+        md:mt=10
         "
                       initial={{ x: -100, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
@@ -771,7 +770,7 @@ const HomePage: React.FC = () => (
                         viewport={{ once: true }}
                       >
                         <a
-                          href="mailto:bimasnajid999@gmail.com?subject=Hello&body=Hello Mybimas,"
+                          href="mailto:bimasoffcl09@gmail.com?subject=Hello&body=Hello Mybimas,"
                           className="transition-colors hover:text-lime-500"
                         >
                           bimasoffcl09@gmail.com
