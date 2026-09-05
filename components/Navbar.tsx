@@ -20,11 +20,18 @@ export default function Navbar() {
       {/* ================= NAVBAR GLASS ================= */}
       <nav
         className="
-        fixed top-0 left-0 w-full
-        h-12 sm:h-14
-        px-4 sm:px-6 md:px-10 lg:px-16
-        flex items-center justify-between
-        z-[60]
+        fixed top-0 left-0
+          flex h-14 w-full items-center justify-between
+          bg-white/5 
+          border-b border-white/20
+          z-[60]
+          px-4
+          shadow-sm
+          backdrop-blur-md
+          sm:h-16
+          sm:px-6
+          md:px-10
+          lg:px-16
       "
       >
         {/* LOGO */}

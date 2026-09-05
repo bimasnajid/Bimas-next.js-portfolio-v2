@@ -19,7 +19,6 @@ import Images from "next/image";
 import Sidebar from "@/components/Sidebar";
 import Navbar from "@/components/Navbar";
 import React, { useState } from "react";
-// import MyGitHubCalendar from "@/components/CalenderGit";
 
 const HomePage: React.FC = () => (
   <div className="flex flex-col z-50">
@@ -57,49 +56,60 @@ const HomePage: React.FC = () => (
                 <div
                   className="
       section-container
+      mx-auto
       grid
-      grid-cols-1
-      gap-6
-      px-4
-      py-8
-      sm:gap-8
-      sm:px-6
-      sm:py-10
-      md:grid-cols-3
-      md:gap-8
-      md:px-10
-      lg:px-16
-      xl:px-20
       min-h-[100svh]
-      place-items-center
+      w-full
+      max-w-[1500px]
+      grid-cols-1
+      items-center
+      gap-8
+      px-6
+      py-10
+
+      sm:px-8
+
+      md:grid-cols-[2fr_1fr]
+      md:gap-12
+      md:px-12
+
+      lg:gap-20
+      lg:px-16
+
+      xl:gap-28
+      xl:px-20
     "
                 >
+                  {/* ================= TEXT ================= */}
+
                   <motion.div
                     className="
-        col-span-1
         flex
+        w-full
         flex-col
         items-center
         justify-center
         text-center
-        md:col-span-2
+
         md:items-start
-        md:text-start
+        md:text-left
       "
                     initial={{ x: -100, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{
-                      type: "spring",
+                      duration: 0.8,
+                      ease: [0.22, 1, 0.36, 1],
                     }}
                   >
                     {/* MOBILE IMAGE */}
+
                     <div
                       className="
-          col-span-1
-          mx-auto
           mb-6
           mt-4
-          block
+          flex
+          w-full
+          justify-center
           md:hidden
         "
                     >
@@ -112,16 +122,16 @@ const HomePage: React.FC = () => (
             bg-slate-500
             grayscale
             transition-all
-            duration-300
+            duration-500
             hover:grayscale-0
             sm:w-48
           "
                       >
                         <img
                           src="/images/bymni.jpg"
-                          alt="Example Image"
+                          alt="Bimas Najid Ilmansyah"
                           className="
-              responsive-image
+              block
               h-full
               w-full
               object-cover
@@ -130,8 +140,11 @@ const HomePage: React.FC = () => (
                       </div>
                     </div>
 
+                    {/* NAME */}
+
                     <motion.h3
                       className="
+          w-full
           px-4
           text-center
           text-xs
@@ -139,69 +152,94 @@ const HomePage: React.FC = () => (
           uppercase
           tracking-[0.2rem]
           text-gray-500
+
           sm:text-sm
           sm:tracking-[0.3rem]
+
           md:px-0
-          md:text-start
+          md:text-left
+
           lg:text-base
-          lg:tracking-[0.5rem]
+          lg:tracking-[0.45rem]
         "
-                      initial={{ x: -100, opacity: 0 }}
+                      initial={{ x: -80, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
                       transition={{
-                        delay: 0.2,
-                        type: "spring",
+                        delay: 0.1,
+                        duration: 0.7,
+                        ease: [0.22, 1, 0.36, 1],
                       }}
                     >
                       Bimas Najid Ilmansyah
                     </motion.h3>
 
+                    {/* TITLE */}
+
                     <motion.h1
                       className="
           my-3
+          w-full
           px-4
+          text-center
           text-4xl
           font-bold
-          leading-tight
+          leading-[1.05]
           text-black
+
           sm:text-5xl
+
           md:my-5
           md:px-0
+          md:text-left
           md:text-6xl
+
           lg:text-7xl
-          xl:text-8xl
+
+          xl:text-[5.5rem]
         "
                       initial={{ x: -100, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
                       transition={{
-                        delay: 0.3,
-                        type: "spring",
+                        delay: 0.2,
+                        duration: 0.8,
+                        ease: [0.22, 1, 0.36, 1],
                       }}
                     >
                       Full Stack Developer
                     </motion.h1>
 
+                    {/* DESCRIPTION */}
+
                     <motion.p
                       className="
           title
-          mt-4
+          mt-5
+          w-full
           max-w-2xl
           px-4
+          text-center
           text-sm
           leading-7
-          tracking-wider
+          tracking-wide
           text-gray-500
+
           sm:text-base
           sm:leading-8
+
           md:px-0
+          md:text-left
+
           lg:text-lg
+          lg:leading-8
+
           xl:text-xl
         "
                       initial={{ x: -100, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
                       transition={{
-                        delay: 0.4,
-                        type: "spring",
+                        delay: 0.3,
+                        duration: 0.8,
+                        ease: [0.22, 1, 0.36, 1],
                       }}
                     >
                       A junior fullstack developer who currently focused on Web
@@ -210,27 +248,31 @@ const HomePage: React.FC = () => (
                       things and always open to new opportunities.
                     </motion.p>
 
+                    {/* BUTTONS */}
+
                     <motion.div
                       className="
-            buttons
-    mt-8
-    flex
-    w-full
-    flex-row
-    items-center
-    justify-center
-    gap-4
-    px-4
-    sm:w-auto
-    sm:justify-start
-    sm:px-0
-    md:mt-10
+          buttons
+          mt-8
+          flex
+          w-full
+          flex-row
+          items-center
+          justify-center
+          gap-4
+          px-4
+
+          md:mt-10
+          md:w-auto
+          md:justify-start
+          md:px-0
         "
-                      initial={{ x: -100, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
+                      initial={{ y: 30, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
                       transition={{
-                        delay: 0.5,
-                        type: "spring",
+                        delay: 0.4,
+                        duration: 0.7,
+                        ease: [0.22, 1, 0.36, 1],
                       }}
                     >
                       <Button variation="primary">
@@ -243,42 +285,47 @@ const HomePage: React.FC = () => (
                     </motion.div>
                   </motion.div>
 
-                  {/* DESKTOP IMAGE */}
+                  {/* ================= DESKTOP IMAGE ================= */}
+
                   <motion.div
                     className="
-        col-span-1
-        mx-auto
         hidden
+        w-full
         items-center
         justify-center
+
         md:flex
+        md:justify-end
       "
                     initial={{ x: 100, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{
-                      delay: 0.7,
-                      type: "spring",
+                      delay: 0.2,
+                      duration: 0.9,
+                      ease: [0.22, 1, 0.36, 1],
                     }}
                   >
                     <div
                       className="
           w-full
-          max-w-xs
+          max-w-[300px]
           overflow-hidden
-          rounded-full
+          rounded-[999px]
           grayscale
           transition-all
-          duration-300
+          duration-500
           hover:grayscale-0
-          md:max-w-sm
-          lg:max-w-md
+
+          md:max-w-[330px]
+          lg:max-w-[360px]
+          xl:max-w-[380px]
         "
                     >
                       <img
                         src="/images/HIMA_BIMAS.png"
-                        alt="Example Image"
+                        alt="Bimas Najid Ilmansyah"
                         className="
-            responsive-image
+            block
             h-auto
             w-full
             object-cover
