@@ -70,6 +70,8 @@ const HomePage: React.FC = () => (
       md:px-10
       lg:px-16
       xl:px-20
+      min-h-[100svh]
+      place-items-center
     "
                 >
                   <motion.div
@@ -210,19 +212,19 @@ const HomePage: React.FC = () => (
 
                     <motion.div
                       className="
-        buttons
-        mt-8
-        flex
-        w-full
-        flex-row
-        items-center
-        justify-center
-        gap-4
-        px-4
-        sm:w-auto
-        sm:justify-start
-        sm:px-0
-        md:mt=10
+            buttons
+    mt-8
+    flex
+    w-full
+    flex-row
+    items-center
+    justify-center
+    gap-4
+    px-4
+    sm:w-auto
+    sm:justify-start
+    sm:px-0
+    md:mt-10
         "
                       initial={{ x: -100, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
@@ -344,7 +346,7 @@ const HomePage: React.FC = () => (
                         initial={{ x: -100, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{
-                          delay: 0.1,
+                          delay: 0.2,
                           type: "spring",
                         }}
                         viewport={{ once: true }}
@@ -781,7 +783,7 @@ const HomePage: React.FC = () => (
                       <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:justify-start">
                         {/* EMAIL */}
                         <motion.a
-                          href="mailto:bimasnajid999@gmail.com?subject=Hello&body=Hello Mybimas,"
+                          href="mailto:bimasoffcl09@gmail.com?subject=Hello&body=Hello Mybimas,"
                           className="
               flex
               items-center
