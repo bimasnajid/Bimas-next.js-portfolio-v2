@@ -288,15 +288,7 @@ const HomePage: React.FC = () => (
                   {/* ================= DESKTOP IMAGE ================= */}
 
                   <motion.div
-                    className="
-        hidden
-        w-full
-        items-center
-        justify-center
-
-        md:flex
-        md:justify-end
-      "
+                    className="hidden w-full items-center justify-center md:flex md:justify-end"
                     initial={{ x: 100, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{
@@ -306,10 +298,7 @@ const HomePage: React.FC = () => (
                     }}
                   >
                     <div
-                      className="
-          w-full
-          max-w-[300px]
-          overflow-hidden
+                      className="w-full max-w-[300px] overflow-hidden
           rounded-[999px]
           grayscale
           transition-all
@@ -378,18 +367,7 @@ const HomePage: React.FC = () => (
         "
                     >
                       <motion.h1
-                        className="
-            w-full
-            break-words
-            text-4xl
-            font-bold
-            leading-tight
-            text-black
-            sm:text-5xl
-            md:text-6xl
-            lg:text-7xl
-            xl:text-8xl
-          "
+                        className="w-full break-words text-4xl font-bold leading-tight text-black sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
                         initial={{ x: -100, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{
@@ -553,22 +531,11 @@ const HomePage: React.FC = () => (
         "
                     >
                       <motion.h1
-                        className="
-            w-full
-            break-words
-            text-4xl
-            font-bold
-            leading-tight
-            text-black
-            sm:text-5xl
-            md:text-6xl
-            lg:text-7xl
-            xl:text-8xl
-          "
+                        className="w-full break-words text-4xl font-bold leading-tight text-black sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
                         initial={{ x: -100, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{
-                          delay: 0.1,
+                          delay: 0.2,
                           type: "spring",
                         }}
                         viewport={{ once: true }}
@@ -668,7 +635,7 @@ const HomePage: React.FC = () => (
                           opacity: 1,
                         }}
                         transition={{
-                          delay: 0.5,
+                          delay: 0.1,
                           type: "spring",
                           stiffness: 100,
                           damping: 20,
@@ -725,7 +692,7 @@ const HomePage: React.FC = () => (
                           opacity: 1,
                         }}
                         transition={{
-                          delay: 0.5,
+                          delay: 0.1,
                           type: "spring",
                           stiffness: 100,
                           damping: 20,
